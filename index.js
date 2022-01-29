@@ -75,6 +75,23 @@ for ( var i = 0; i < document.querySelectorAll(".drum").length; i++ ) {
 
     });
 
+    //Touch Listeners
+
+    document.querySelectorAll(".drum")[i].addEventListener("touchstart", function (event) {
+
+        // if (event.repeat === false) {
+            var letter = this.innerHTML
+            soundChecker(letter);
+        // }
+    });
+
+    document.querySelectorAll(".drum")[i].addEventListener("touchend", function (event) {
+
+        document.querySelector(".kanye").setAttribute("src", "images/kim1.png");
+
+    });
+    
+
 }
 
 //Keyboard Listeners
@@ -92,17 +109,3 @@ document.addEventListener("keyup", function (event) {
 
 });
 
-//Touch Listeners
-
-document.addEventListener("touchstart", function (event) {
-
-    if (event.repeat === false) {
-        soundChecker(event.key);
-    }
-});
-
-document.addEventListener("touchend", function (event) {
-
-    document.querySelector(".kanye").setAttribute("src", "images/kim1.png");
-
-});
