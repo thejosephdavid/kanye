@@ -54,8 +54,50 @@ function soundChecker(letter) {
                 break;
         }
 
-        // setTimeout(backToKim, 1000);
 } 
+
+//kanyeReplacer
+
+function kanyeReplacer(letter) {
+        
+    switch (letter) {
+        case "w":
+            document.querySelector(".kanye").setAttribute("src", "images/ye1.png");
+            break;
+
+        case "a":
+            document.querySelector(".kanye").setAttribute("src", "images/ye2.png");
+            break;
+
+        case "s":
+            document.querySelector(".kanye").setAttribute("src", "images/ye3.png");
+            break;
+
+        case "d":
+            document.querySelector(".kanye").setAttribute("src", "images/ye4.png");
+            break;
+
+        case "j":
+            document.querySelector(".kanye").setAttribute("src", "images/ye5.png");
+            break;
+
+        case "k":
+            document.querySelector(".kanye").setAttribute("src", "images/ye6.png");
+            break;
+            
+        case "l":
+            document.querySelector(".kanye").setAttribute("src", "images/ye7.png");
+            break;
+            
+        case "i":
+            document.querySelector(".kanye").setAttribute("src", "images/ye8.png");
+            break;
+
+        default:
+            break;
+    }
+
+}
 
 //Button Listeners
 
@@ -81,7 +123,7 @@ for ( var i = 0; i < document.querySelectorAll(".drum").length; i++ ) {
 
         // if (event.repeat === false) {
             var letter = this.innerHTML
-            soundChecker(letter);
+            kanyeReplacer(letter);
         // }
     });
 
