@@ -57,6 +57,8 @@ function soundChecker(letter) {
         // setTimeout(backToKim, 1000);
 } 
 
+//Button Listeners
+
 for ( var i = 0; i < document.querySelectorAll(".drum").length; i++ ) {
 
     document.querySelectorAll(".drum")[i].addEventListener("mousedown", function () {
@@ -75,6 +77,8 @@ for ( var i = 0; i < document.querySelectorAll(".drum").length; i++ ) {
 
 }
 
+//Keyboard Listeners
+
 document.addEventListener("keydown", function (event) {
 
     if (event.repeat === false) {
@@ -83,6 +87,21 @@ document.addEventListener("keydown", function (event) {
 });
 
 document.addEventListener("keyup", function (event) {
+
+    document.querySelector(".kanye").setAttribute("src", "images/kim1.png");
+
+});
+
+//Touch Listeners
+
+document.addEventListener("touchstart", function (event) {
+
+    if (event.repeat === false) {
+        soundChecker(event.key);
+    }
+});
+
+document.addEventListener("touchend", function (event) {
 
     document.querySelector(".kanye").setAttribute("src", "images/kim1.png");
 
