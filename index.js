@@ -3,50 +3,50 @@ function soundChecker(letter) {
         
         switch (letter) {
             case "w":
-                var audio = new Audio("sounds/snare-1.wav");
-                audio.play();
+                var snare1 = new Audio("sounds/snare-1.wav");
+                snare1.play();
                 document.querySelector(".kanye").setAttribute("src", "images/ye1.png");
                 break;
 
             case "a":
-                var audio = new Audio("sounds/snare-2.wav");
-                audio.play();
+                var snare2 = new Audio("sounds/snare-2.wav");
+                snare2.play();
                 document.querySelector(".kanye").setAttribute("src", "images/ye2.png");
                 break;
 
             case "s":
-                var audio = new Audio("sounds/kick-1.wav");
-                audio.play();
+                var kick1 = new Audio("sounds/kick-1.wav");
+                kick1.play();
                 document.querySelector(".kanye").setAttribute("src", "images/ye3.png");
                 break;
 
             case "d":
-                var audio = new Audio("sounds/legend.mp3");
-                audio.play();
+                var legend = new Audio("sounds/legend.mp3");
+                legend.play();
                 document.querySelector(".kanye").setAttribute("src", "images/ye4.png");
                 break;
 
             case "j":
-                var audio = new Audio("sounds/hithat.wav");
-                audio.play();
+                var hithat = new Audio("sounds/hithat.wav");
+                hithat.play();
                 document.querySelector(".kanye").setAttribute("src", "images/ye5.png");
                 break;
 
             case "k":
-                var audio = new Audio("sounds/claps.wav");
-                audio.play();
+                var claps = new Audio("sounds/claps.wav");
+                claps.play();
                 document.querySelector(".kanye").setAttribute("src", "images/ye6.png");
                 break;
-                
+        
             case "l":
-                var audio = new Audio("sounds/beat-1.wav");
-                audio.play();
+                var beat1 = new Audio("sounds/beat-1.wav");
+                beat1.play();
                 document.querySelector(".kanye").setAttribute("src", "images/ye7.png");
                 break;
                 
             case "i":
-                var audio = new Audio("sounds/robot.mp3");
-                audio.play();
+                var robot = new Audio("sounds/robot.mp3");
+                robot.play();
                 document.querySelector(".kanye").setAttribute("src", "images/ye8.png");
                 break;
 
@@ -56,83 +56,45 @@ function soundChecker(letter) {
 
 } 
 
-//kanyeReplacer
-
-function kanyeReplacer(letter) {
-        
-    switch (letter) {
-        case "w":
-            document.querySelector(".kanye").setAttribute("src", "images/ye1.png");
-            break;
-
-        case "a":
-            document.querySelector(".kanye").setAttribute("src", "images/ye2.png");
-            break;
-
-        case "s":
-            document.querySelector(".kanye").setAttribute("src", "images/ye3.png");
-            break;
-
-        case "d":
-            document.querySelector(".kanye").setAttribute("src", "images/ye4.png");
-            break;
-
-        case "j":
-            document.querySelector(".kanye").setAttribute("src", "images/ye5.png");
-            break;
-
-        case "k":
-            document.querySelector(".kanye").setAttribute("src", "images/ye6.png");
-            break;
-            
-        case "l":
-            document.querySelector(".kanye").setAttribute("src", "images/ye7.png");
-            break;
-            
-        case "i":
-            document.querySelector(".kanye").setAttribute("src", "images/ye8.png");
-            break;
-
-        default:
-            break;
-    }
-
-}
-
 //Button Listeners
 
 for ( var i = 0; i < document.querySelectorAll(".drum").length; i++ ) {
 
-    document.querySelectorAll(".drum")[i].addEventListener("mousedown", function () {
-        
-        var letter = this.innerHTML
-        soundChecker(letter);
+    if (window.matchMedia('(pointer:coarse)').matches === false) {
 
-    });
-
-
-    document.querySelectorAll(".drum")[i].addEventListener("mouseup", function () {
-        
-        document.querySelector(".kanye").setAttribute("src", "images/kim1.png");
-
-    });
-
-    //Touch Listeners
-
-    document.querySelectorAll(".drum")[i].addEventListener("touchstart", function (event) {
-
-        // if (event.repeat === false) {
+        document.querySelectorAll(".drum")[i].addEventListener("mousedown", function () {
+            
             var letter = this.innerHTML
-            kanyeReplacer(letter);
-        // }
-    });
+            soundChecker(letter);
 
-    document.querySelectorAll(".drum")[i].addEventListener("touchend", function (event) {
+        });
 
-        document.querySelector(".kanye").setAttribute("src", "images/kim1.png");
 
-    });
+        document.querySelectorAll(".drum")[i].addEventListener("mouseup", function () {
+            
+            document.querySelector(".kanye").setAttribute("src", "images/kim1.png");
+
+        });
+
+    } else {
     
+        //Touch Listeners
+
+        document.querySelectorAll(".drum")[i].addEventListener("touchstart", function (event) {
+
+            // if (event.repeat === false) {
+                var letter = this.innerHTML
+                soundChecker(letter);
+            // }
+        });
+
+        document.querySelectorAll(".drum")[i].addEventListener("touchend", function (event) {
+
+            document.querySelector(".kanye").setAttribute("src", "images/kim1.png");
+
+        });
+    }
+
 
 }
 
@@ -150,4 +112,3 @@ document.addEventListener("keyup", function (event) {
     document.querySelector(".kanye").setAttribute("src", "images/kim1.png");
 
 });
-
