@@ -104,11 +104,13 @@ document.addEventListener("keydown", function (event) {
 
     if (event.repeat === false) {
         soundChecker(event.key);
+        document.querySelector("."+event.key).classList.add("btn-key-hover");
     }
 });
 
 document.addEventListener("keyup", function (event) {
 
     document.querySelector(".kanye").setAttribute("src", "images/kim1.png");
+    document.querySelector("."+event.key).classList.remove("btn-key-hover");
 
 });
